@@ -1,0 +1,638 @@
+/* Estilos Base */
+body {
+    padding-top: 56px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    /* MODO CLARO POR DEFECTO */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #212529; /* Texto oscuro por defecto */
+}
+
+/* Estilo para el contenido principal */
+main {
+    /* Fondo blanco para el modo claro */
+    background-color: white; 
+    color: #212529; /* Texto oscuro */
+    flex-grow: 1;
+}
+
+/* 1. Header y Navegación */
+.navbar-brand.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-brand .fa-car {
+    margin-right: 8px;
+    color: var(--bs-primary);
+}
+
+/* --- ESTILOS DINÁMICA FERRARI (CARRUSEL FIJO) --- */
+
+/* Reemplazo del Header-Background por un Carrusel */
+.carousel, .carousel-item {
+    /* Ocupa el 50% de la altura de la ventana (viewport height) */
+    height: 50vh; 
+    width: 100%;
+}
+
+.carousel-item {
+    background-size: cover;
+    background-position: center;
+    /* Un overlay oscuro para que el texto se lea mejor */
+    background-color: rgba(0,0,0,0.3);
+    background-blend-mode: multiply;
+}
+
+/* Posicionamiento del carrusel (Ahora se comporta como una sección normal) */
+#heroCarousel {
+    /* Eliminamos position: fixed. Se desplaza con el scroll. */
+    position: relative; /* O simplemente puedes dejarlo vacío o eliminar el bloque completo si no hay estilos específicos */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Valor bajo, ya no necesita flotar */
+}
+
+
+/* 2. Tarjetas de Vehículos (Con Animación Mejorada) */
+.card {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: none;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+    overflow: hidden;
+
+    /* CAMBIO CLAVE: Fondo gris oscuro */
+    background-color: #ffffff; 
+    color: #f8f9fa; /* Aseguramos que el texto general sea claro */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* La levanta un poco más */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+}
+
+.card-img-top {
+    /* Altura fija para todas las imágenes */
+    height: 220px;
+    /* Asegura que la imagen cubra el espacio sin deformarse */
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.6s ease; /* Transición para el zoom */
+}
+
+/* Efecto Zoom a la imagen */
+.card:hover .card-img-top {
+    transform: scale(1.05); /* Agranda la imagen dentro de la tarjeta */
+}
+
+.card-body {
+    /* Usa Flexbox para empujar el footer de la tarjeta hacia abajo */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    /* Altura fija para el título (aprox 2 líneas) */
+    height: 3.2em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+}
+
+.card-text.category,
+.card-text.tipo {
+    /* Altura fija para la descripción (1 línea) */
+    height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #6c757d;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color:#0f0f0f
+}
+
+.card-footer {
+    /* Se empuja al final del card-body gracias a flex-grow en el body */
+    margin-top: auto;
+    background-color:transparent;
+    border-top: none;
+    padding: 1rem 1rem;
+}
+
+/* Botón que aparece al hacer hover (Más limpio) */
+.card .view-details-btn {
+    opacity: 0; /* Oculto por defecto */
+    transform: translateY(20px); /* Posicionado abajo */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    color: #ffffff
+}
+
+.card:hover .view-details-btn {
+    opacity: 1; /* Aparece */
+    transform: translateY(0); /* Sube a su posición */
+}
+
+/* 3 ============================================== */
+/*    === NUEVO: Estilos del Carrito (Icono Blanco, Contador Rojo) === */
+/*   ============================================== */
+
+/* Contenedor del ícono para asegurar el posicionamiento del contador */
+#cartIcon {
+    position: relative; 
+    cursor: pointer;
+    padding: 0.3rem; 
+    transition: transform 0.2s ease-in-out; /* Animación sutil al pasar el mouse */
+}
+
+#cartIcon:hover {
+    transform: scale(1.1); /* Ligeramente más grande al pasar el mouse */
+}
+
+/* Estilizando el ÍCONO (fa-shopping-cart) para que sea blanco */
+#cartIcon .fa-shopping-cart {
+    color: #ffffff; /* Ícono blanco sobre el fondo oscuro de la navbar */
+    font-size: 1.5rem; /* Un poco más grande para que destaque */
+}
+
+/* Estilizando el CONTADOR (badge) para que parezca un punto rojo minimalista */
+#cartCount {
+    background-color: #ff0000 !important; /* Rojo Ferrari sólido */
+    color: #ffffff !important;
+    
+    /* Propiedades para la forma circular */
+    min-width: 1.2rem; 
+    height: 1.2rem;
+    padding: 0.1rem 0.25rem; 
+    font-size: 0.75rem; 
+    line-height: 1; 
+    border-radius: 50%; /* Completamente redondo */
+
+    /* Posicionamiento del badge en la esquina superior derecha del ícono */
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%); /* Mueve el badge para que "cuelgue" de la esquina */
+    
+    /* Borde sutil blanco para resaltar en el fondo negro */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    z-index: 10; 
+    transition: transform 0.3s ease;
+}
+
+/* Ocultar el contador si está en cero (limpieza y elegancia) */
+#cartCount:empty,
+#cartCount[data-count="0"],
+#cartCount:not([data-count]):contains('0') {
+    display: none !important;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* 4. Spinner de Carga */
+#loadingSpinner {
+    padding: 3rem 0;
+}
+
+/* 5. Estilos del Carrito Modal */
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h6 {
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-details p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 6. Modal de Detalles */
+#detailsModalImage {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+
+/* --- ESTILOS NAVEGACIÓN SUPERIOR (Dark Mode) --- */
+
+.navbar-expand-lg .navbar-nav .nav-link,
+.navbar-expand-lg .navbar-nav .btn.nav-link { /* Aplica a botones y enlaces */
+    color: #fff; /* Enlaces blancos */
+    font-weight: 500;
+    transition: color 0.2s, border-bottom 0.2s;
+    font-size: 0.95rem;
+    background: none; /* Asegura que los botones no tengan fondo por defecto */
+    border: none; /* Asegura que los botones no tengan borde por defecto */
+    cursor: pointer; /* Indica que son clickeables */
+    position: relative; /* Para el underline */
+}
+
+/* Subrayado al pasar el ratón o enlace activo */
+.navbar-expand-lg .navbar-nav .nav-link:hover,
+.navbar-expand-lg .navbar-nav .nav-link-active {
+    color: #ff0000; /* Color rojo (simulando un toque Ferrari) */
+    border-bottom: 2px solid #ff0000;
+    padding-bottom: 5px;
+}
+
+.navbar-brand.logo {
+    color: #fff !important; /* Asegurar el logo blanco */
+}
+
+
+/* --- ESTILOS OFFCANVAS BASE Y SUBMENÚS (Estilo Ferrari) --- */
+
+.offcanvas {
+    background-color: #000000; /* Fondo completamente negro para todos los offcanvas */
+    color: #f8f9fa; /* Texto claro */
+}
+
+/* Estilo para los offcanvas que actúan como submenús (RACING, SPORTS CARS) */
+.offcanvas-submenu {
+    width: 300px; /* Ancho más pequeño, como en la imagen */
+    max-width: 80%; /* Para pantallas pequeñas */
+}
+
+/* Asegura que el offcanvas base para móvil también sea negro */
+.offcanvas-base {
+    background-color: #000000;
+}
+
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #000000; /* Fondo del header también negro */
+}
+
+.offcanvas-header .offcanvas-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Botón de cierre blanco */
+.offcanvas-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Truco para hacerlo blanco */
+    opacity: 0.7;
+}
+.offcanvas-header .btn-close:hover {
+    opacity: 1;
+}
+
+/* Título de la sección (como "NAVEGACIÓN" o el título del offcanvas) */
+.offcanvas-section-title {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #adb5bd; /* Un gris claro */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.75rem;
+}
+
+/* Estilo de los enlaces del menú principal (Offcanvas general para móviles) */
+.offcanvas-body .nav-link {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #f8f9fa;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between; /* Empuja el ícono a la derecha */
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.offcanvas-body .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.offcanvas-body .nav-link .fa-chevron-right {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+/* Estilo específico para los SUBMENÚS (listas dentro de OffcanvasRacing y OffcanvasSportsCars) */
+
+.offcanvas-submenu .offcanvas-body {
+    padding-top: 0;
+}
+
+.offcanvas-submenu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.offcanvas-submenu-list li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem; 
+    color: #fff; 
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.offcanvas-submenu-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ff0000;
+}
+
+.offcanvas-submenu-list li:last-child a {
+    border-bottom: none;
+}
+
+.offcanvas-submenu-list li .fa-chevron-right {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.offcanvas-submenu-list li a:hover .fa-chevron-right {
+    opacity: 1;
+    color: #ff0000;
+}
+
+
+/* ============================================== */
+/* === NUEVO: Estilos del Preloader/Splash Screen === */
+/* ============================================== */
+#preloader {
+    /* Cubre toda la ventana (viewport) y es fijo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Fondo completamente negro */
+    background-color: #000000;
+    /* Asegura que esté por encima de todos los demás elementos */
+    z-index: 9999;
+    /* Centra el contenido (logo y spinner) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Transición para el efecto de desvanecimiento */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.5s ease-out, visibility 1.5s;
+}
+
+/* Clase que se añade con JavaScript para ocultarlo */
+#preloader.hidden {
+    opacity: 0; /* Desvanecerlo */
+    visibility: hidden; /* Ocultarlo completamente después del desvanecimiento */
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+.preloader-logo {
+    /* Ajusta el tamaño de tu logo */
+    width: 200px;
+    height: auto;
+    /* Animación inicial de zoom */
+    animation: zoomIn 1.5s ease-out;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================== */
+/* === NUEVO: Estilos del Footer Profesional === */
+/* ============================================== */
+
+.footer-section {
+    padding: 0 15px;
+}
+
+.footer-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #ff0000; /* Color rojo (Principal) */
+}
+
+/* * CORRECCIÓN DE VISIBILIDAD: 
+ * Aplicamos color blanco o un gris muy claro a los elementos que usan .text-muted 
+ * para garantizar el contraste sobre el fondo oscuro.
+ */
+.bg-dark .text-muted, 
+.bg-dark .list-unstyled a {
+    color: #f8f9fa !important; /* Texto blanco (mayor visibilidad) */
+}
+
+/* Estilo de los enlaces en el footer */
+.footer-link {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    text-decoration: none; 
+}
+
+.footer-link:hover {
+    color: #ff0000 !important; /* Rojo al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* Estilo de los iconos de redes sociales */
+.social-icons a {
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    font-size: 1.2rem;
+    /* Separación extra para bajar los iconos un poco más */
+    margin-top: 1.5rem !important; 
+}
+
+.social-icons a:hover {
+    color: #ff0000 !important; /* Iconos rojos al pasar el ratón */
+    transform: scale(1.1);
+}
+
+/* Asegurar que la barra de input del newsletter se vea bien */
+.input-group .form-control {
+    border-radius: 0.25rem 0 0 0.25rem !important; 
+}
+
+.input-group .btn-primary {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    border-radius: 0 0.25rem 0.25rem 0 !important; 
+}
+
+/* ============================================== */
+/* === NUEVO: Estilos Modo Oscuro (.dark-mode) === */
+/* ============================================== */
+
+/* 1. Base de la Página (Se aplica al body) */
+.dark-mode {
+    background-color: #000000; /* Negro puro */
+    color: #f8f9fa; /* Texto principal blanco */
+}
+
+/* 2. Contenido Principal (main) */
+.dark-mode main {
+    background-color: #000000; /* Gris muy oscuro para las secciones */
+    color: #f8f9fa;
+}
+
+/* 3. Ajuste de Tarjetas */
+.dark-mode .card {
+    background-color: #000000; /* Fondo oscuro de la tarjeta */
+    box-shadow: 0 8px 16px rgba(134, 3, 3, 0.692);
+}
+
+/* 4. Ajuste para color de precios en modo oscuro */
+.dark-mode .card-price {
+    /* Aquí defines el color del precio SÓLO cuando el body tiene la clase .dark-mode */
+    color: #bb0606; /* EJEMPLO: Verde neón, ideal para el modo oscuro */
+    /* color: #f8f9fa; /* EJEMPLO: Blanco puro */
+    /* color: #ff0000; /* EJEMPLO: Rojo (si lo quieres mantener) */
+}
+
+.dark-mode .card-title,
+.dark-mode .card-text.category,
+.dark-mode .card-text.tipo {
+    color: #f8f9fa;
+}
+
+.dark-mode .card-title,
+.dark-mode .card-text.category,
+.dark-mode .card-text.tipo {
+    color: #f8f9fa; /* Texto de la tarjeta blanco/gris claro */
+}
+
+/* 4. Ajuste de Alertas (para que no sean blancas) */
+.dark-mode .alert-info {
+    background-color: #1e3a51;
+    color: #90b8da;
+    border-color: #1e3a51;
+}
+
+/* ============================================== */
+/* === NUEVOS ESTILOS: Búsqueda Destacada (featured-search) === */
+/* ============================================== */
+
+#featured-search {
+    background-color: #f8f9fa;
+    /* Aumentamos el padding inferior para crear espacio debajo del formulario */
+    padding-bottom: 50px !important; 
+}
+
+/* Título de la sección */
+.featured-search-title {
+    font-weight: 800;
+    color: #212529; /* Negro para el título en modo claro */
+}
+
+/* Ajuste del párrafo descriptivo */
+.max-width-p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #495057 !important; /* Gris oscuro para el texto en modo claro */
+}
+
+/* Estilo del formulario de búsqueda */
+.search-form-box {
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6;
+    padding: 20px !important;
+}
+
+.search-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.search-input {
+    height: 40px;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    border: 1px solid #ced4da;
+}
+
+.search-button {
+    height: 40px;
+    background-color: #dc3545; /* Rojo más común para botones de acción */
+    border-color: #dc3545;
+    font-weight: 700;
+}
+
+.search-car-img {
+    max-height: 400px;
+    width: auto;
+    object-fit: contain;
+    /* Aumentamos el margen superior para empujar el coche hacia abajo, 
+       y reducimos el margen negativo para separarlo del formulario */
+    margin-top: 10px; 
+}
+
+/* --- AJUSTES PARA MODO OSCURO --- */
+
+.dark-mode #featured-search {
+    background-color: #0f0f0f; /* Fondo oscuro de la sección */
+}
+
+.dark-mode .featured-search-title {
+    color: #f8f9fa; /* Título blanco en modo oscuro */
+}
+
+.dark-mode .max-width-p {
+    color: #adb5bd !important; /* Texto claro en modo oscuro */
+}
+
+.dark-mode .search-form-box {
+    background-color: #1a1a1a !important; /* Fondo del formulario oscuro */
+    border: 1px solid #343a40;
+}
+
+.dark-mode .search-label,
+.dark-mode .search-input {
+    color: #f8f9fa !important; /* Texto e input claro */
+}
+
+.dark-mode .search-input {
+    background-color: #212529; /* Fondo de input más oscuro */
+    border-color: #343a40;
+}

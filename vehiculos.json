@@ -1,0 +1,114 @@
+{
+    "vehiculos": [
+        {
+            "codigo": 101,
+            "marca": "Ferrari",
+            "modelo": "Roma",
+            "categoria": "Deportivo",
+            "tipo": "Coupé / Gran Turismo",
+            "anio_fabricacion": 2023,
+            "precio_venta": 22200000.00,
+            "imagen": "data:image/jpeg;base64,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",
+            "logo_marca": "https://i.pinimg.com/736x/39/19/0d/39190d47c2d168b622c9396cb30acb51.jpg"
+        },
+        {
+            "codigo": 102,
+            "marca": "Lamborghini",
+            "modelo": "Huracán Evo",
+            "categoria": "Racing",
+            "tipo": "Supercar / Tracción Total",
+            "anio_fabricacion": 2022,
+            "precio_venta": 28000000.00,
+            "imagen": "https://www.luxurysportcarsdubai.com/wp-content/uploads/2024/10/Rent-Lamborghini-Huracan-Evo-Coupe-in.jpg",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lamborghini_Logo.svg/300px-Lamborghini_Logo.svg.png"
+        },
+        {
+            "codigo": 103,
+            "marca": "Porsche",
+            "modelo": "911 Turbo S",
+            "categoria": "Deportivo",
+            "tipo": "Coupé / Alto Rendimiento",
+            "anio_fabricacion": 2024,
+            "precio_venta": 24500000.00,
+            "imagen": "https://newsroom.porsche.com/.imaging/mte/porsche-templating-theme/image_1290x726/dam/ES-PLA-local/2022/Vehiculos/El-nuevo-Porsche-911-Turbo-S-llega-Ecuador/PLA22_1125_fine.jpg/jcr:content/PLA22_1125_fine.jpg",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Porsche_logo.png/300px-Porsche_logo.png"
+        },
+        {
+            "codigo": 104,
+            "marca": "Rolls-Royce",
+            "modelo": "Cullinan",
+            "categoria": "Lujo",
+            "tipo": "SUV / Ultra Lujo",
+            "anio_fabricacion": 2022,
+            "precio_venta": 35000000.00,
+            "imagen": "https://hips.hearstapps.com/hmg-prod/images/2025-rolls-royce-cullinan-black-badge-107-663a56d913506.jpg?crop=0.834xw:0.740xh;0.0799xw,0.178xh&resize=1200:*0",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Rolls-Royce_logo.svg/300px-Rolls-Royce_logo.svg.png"
+        },
+        {
+            "codigo": 105,
+            "marca": "Mercedes-AMG",
+            "modelo": "G 63 AMG",
+            "categoria": "Colección",
+            "tipo": "SUV / Todo Terreno",
+            "anio_fabricacion": 2021,
+            "precio_venta": 17500000.00,
+            "imagen": "https://carfax-img.vast.com/carfax/v2/-220423321060138394/1/344x258",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Benz_Logo.svg/300px-Mercedes-Benz_Logo.svg.png"
+        },
+        {
+            "codigo": 106,
+            "marca": "McLaren",
+            "modelo": "720S",
+            "categoria": "Racing",
+            "tipo": "Supercar / Performance",
+            "anio_fabricacion": 2023,
+            "precio_venta": 27000000.00,
+            "imagen": "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2025/202506/20250610/MCLAREN-720S-4.0-V8-TURBO-GASOLINA-SPIDER-SSG-wmimagem19333165466.jpg",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/McLaren_logo.svg/300px-McLaren_logo.svg.png"
+        },
+        {
+            "codigo": 107,
+            "marca": "Bentley",
+            "modelo": "Continental GT",
+            "categoria": "Lujo",
+            "tipo": "Gran Turismo / Convertible",
+            "anio_fabricacion": 2022,
+            "precio_venta": 21500000.00,
+            "imagen": "https://pictures.dealer.com/n/newportautocenterbentley/1736/ce98903a7f4905328512a275ce1658e8x.jpg?impolicy=resize&w=640",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Bentley_logo.svg/300px-Bentley_logo.svg.png"
+        },
+        {
+            "codigo": 108,
+            "marca": "BMW",
+            "modelo": "M8 Competition",
+            "categoria": "Deportivo",
+            "tipo": "Coupé / Alto Rendimiento",
+            "anio_fabricacion": 2024,
+            "precio_venta": 15500000.00,
+            "imagen": "https://acnews.blob.core.windows.net/imgnews/medium/NAZ_c1a1a4d6bfc94118af772b092f96d57d.jpg",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/300px-BMW.svg.png"
+        },
+        {
+            "codigo": 109,
+            "marca": "Audi",
+            "modelo": "R8 Spyder",
+            "categoria": "Racing",
+            "tipo": "Convertible / Supercar",
+            "anio_fabricacion": 2023,
+            "precio_venta": 18500000.00,
+            "imagen": "https://www.cnet.com/a/img/resize/e720bece8e3fe9966bb7e43b8beca963873985a2/hub/2020/09/03/9d4d99f9-b400-4660-9ba4-6051519500d3/2020-audi-r8-spyder-001.jpg?auto=webp&width=768",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Audi_logo.svg/300px-Audi_logo.svg.png"
+        },
+        {
+            "codigo": 110,
+            "marca": "Tesla",
+            "modelo": "Model S Plaid",
+            "categoria": "Colección",
+            "tipo": "Sedán / Eléctrico",
+            "anio_fabricacion": 2024,
+            "precio_venta": 13000000.00,
+            "imagen": "https://d2q97jj8nilsnk.cloudfront.net/images/tesla-model-s-plaid-0-60-fastest-tesla.jpg",
+            "logo_marca": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/300px-Tesla_T_symbol.svg.png"
+        }
+    ]
+}
